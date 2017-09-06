@@ -42,7 +42,7 @@ function replaceBioSection() {
         var tempSkill = HTMLskills.replace("%data%", skill);
         bio.skills.splice(bio.skills.indexOf(skill), 1, tempSkill);
     }, this);
-};
+}
 // end bio section
 
 /**
@@ -157,7 +157,7 @@ var projects = {
             $('.project-entry:last').append(project.title + project.dates + project.description);
             project.images.forEach(function (image) {
                 $('.project-entry:last').append(image);
-            })
+            });
         }, this);
     }
 };
@@ -181,6 +181,6 @@ function initializePage() {
     work.display();
     projects.display();
     $('#mapDiv').append(googleMap);
-};
+}
 
 initializePage();
