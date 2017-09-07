@@ -11,19 +11,19 @@ var bio = {
         twitter: "@allychow",
         location: "Richmond Hill, Ontario"
     },
-    welcomeMessage: "/placeholder welcome message",
+    welcomeMessage: "welcome to my site",
     skills: ["Absolutely nothing", "Procrastination"],
     biopic: "images/fry.jpg",
     display: function () {
         replaceBioSection();
         $('#header').prepend(HTMLheaderName + HTMLheaderRole);
-        $('#topContacts').append(HTMLmobile + HTMLemail + HTMLgithub + HTMLtwitter + HTMLlocation);
-        $('#footerContacts').append(HTMLmobile + HTMLemail + HTMLgithub + HTMLtwitter + HTMLlocation);
-        $('#header').append(HTMLbioPic);
+        $('#topContacts, #footerContacts').append(HTMLmobile + HTMLemail + HTMLgithub + HTMLtwitter + HTMLlocation);
+        // $('#footerContacts').append(HTMLmobile + HTMLemail + HTMLgithub + HTMLtwitter + HTMLlocation);
+        $('#header').append(HTMLbioPic + HTMLwelcomeMsg);
         $('#header').append(HTMLskillsStart);
         bio.skills.forEach(function (skill) {
             $('#header').append(skill);
-        }, this);
+        });
     }
 };
 
@@ -41,7 +41,7 @@ function replaceBioSection() {
     bio.skills.forEach(function (skill) {
         var tempSkill = HTMLskills.replace("%data%", skill);
         bio.skills.splice(bio.skills.indexOf(skill), 1, tempSkill);
-    }, this);
+    });
 }
 // end bio section
 
@@ -75,7 +75,7 @@ var education = {
             school.majors.forEach(function (major) {
                 $('.education-entry:last').append(major);
             });
-        }, this);
+        });
         $('#education').append(HTMLonlineClasses);
         education.onlineCourses.forEach(function (course) {
             $('#education').append(HTMLschoolStart);
@@ -93,15 +93,15 @@ function replaceEducationSection() {
         school.majors.forEach(function (major) {
             var tempMajor = HTMLschoolMajor.replace("%data%", major);
             school.majors.splice(bio.skills.indexOf(major), 1, tempMajor);
-        }, this);
-    }, this);
+        });
+    });
 
     education.onlineCourses.forEach(function (onlineCourse) {
         onlineCourse.title = HTMLonlineTitle.replace("%data%", onlineCourse.title);
         onlineCourse.school = HTMLonlineSchool.replace("%data%", onlineCourse.school);
         onlineCourse.dates = HTMLonlineDates.replace("%data%", onlineCourse.dates);
         onlineCourse.url = HTMLonlineURL.replace("%data%", onlineCourse.url);
-    }, this);
+    });
 }
 // end education section
 
@@ -123,7 +123,7 @@ var work = {
         work.jobs.forEach(function (job) {
             $('#workExperience').append(HTMLworkStart);
             $('.work-entry:last').append(job.employer + job.title + job.dates + job.location + job.description);
-        }, this);
+        });
     }
 };
 
@@ -134,7 +134,7 @@ function replaceWorkSection() {
         job.location = HTMLworkLocation.replace("%data%", job.location);
         job.dates = HTMLworkDates.replace("%data%", job.dates);
         job.description = HTMLworkDescription.replace("%data%", job.description);
-    }, this);
+    });
 }
 // end work section
 
@@ -158,7 +158,7 @@ var projects = {
             project.images.forEach(function (image) {
                 $('.project-entry:last').append(image);
             });
-        }, this);
+        });
     }
 };
 
@@ -170,8 +170,8 @@ function replaceProjectsSection() {
         project.images.forEach(function (image) {
             var tempImage = HTMLprojectImage.replace("%data%", image);
             project.images.splice(project.images.indexOf(image), 1, tempImage);
-        }, this);
-    }, this);
+        });
+    });
 }
 // end project section
 
