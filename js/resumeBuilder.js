@@ -18,7 +18,6 @@ var bio = {
         replaceBioSection();
         $('#header').prepend(HTMLheaderName + HTMLheaderRole);
         $('#topContacts, #footerContacts').append(HTMLmobile + HTMLemail + HTMLgithub + HTMLtwitter + HTMLlocation);
-        // $('#footerContacts').append(HTMLmobile + HTMLemail + HTMLgithub + HTMLtwitter + HTMLlocation);
         $('#header').append(HTMLbioPic + HTMLwelcomeMsg);
         $('#header').append(HTMLskillsStart);
         bio.skills.forEach(function (skill) {
@@ -30,7 +29,6 @@ var bio = {
 function replaceBioSection() {
     HTMLheaderName = HTMLheaderName.replace("%data%", bio.name);
     HTMLheaderRole = HTMLheaderRole.replace("%data%", bio.role);
-    // HTMLcontactGeneric.replace("%data", bio.role);
     HTMLmobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
     HTMLemail = HTMLemail.replace("%data%", bio.contacts.email);
     HTMLtwitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
@@ -48,25 +46,21 @@ function replaceBioSection() {
 /**
  * education section
  */
-var university = {
-    name: "University of Waterloo",
-    location: "Waterloo, Ontario",
-    degree: "Bachelor's of Applied Sciences",
-    majors: ["Computer Engineering"],
-    dates: "2016-2021",
-    url: "university-url"
-};
-
-var course = {
-    title: "Front-End Web Developer Nanodegree",
-    school: "Udacity",
-    dates: "2017",
-    url: "https://classroom.udacity.com/nanodegrees/nd001"
-};
-
 var education = {
-    schools: [university],
-    onlineCourses: [course],
+    schools: [{
+        name: "University of Waterloo",
+        location: "Waterloo, Ontario",
+        degree: "Bachelor's of Applied Sciences",
+        majors: ["Computer Engineering"],
+        dates: "2016-2021",
+        url: "university-url"
+    }],
+    onlineCourses: [{
+        title: "Front-End Web Developer Nanodegree",
+        school: "Udacity",
+        dates: "2017",
+        url: "https://classroom.udacity.com/nanodegrees/nd001"
+    }],
     display: function () {
         replaceEducationSection();
         education.schools.forEach(function (school) {
@@ -108,16 +102,15 @@ function replaceEducationSection() {
 /**
  * work section
  */
-var job = {
-    employer: "Microsoft",
-    title: "Explore Intern",
-    location: "Redmond, Washington",
-    dates: "May 2017-August 2017",
-    description: "Description of job"
-};
 
 var work = {
-    jobs: [job],
+    jobs: [{
+        employer: "Microsoft",
+        title: "Explore Intern",
+        location: "Redmond, Washington",
+        dates: "May 2017-August 2017",
+        description: "Description of job"
+    }],
     display: function () {
         replaceWorkSection();
         work.jobs.forEach(function (job) {
@@ -141,15 +134,14 @@ function replaceWorkSection() {
 /**
  * project section
  */
-var project = {
-    title: "project title",
-    dates: "project date",
-    description: "project description",
-    images: ["images/197x148.gif", "images/197x148.gif"]
-};
 
 var projects = {
-    projects: [project],
+    projects: [{
+        title: "project title",
+        dates: "project date",
+        description: "project description",
+        images: ["images/197x148.gif", "images/197x148.gif"]
+    }],
     display: function () {
         replaceProjectsSection();
         projects.projects.forEach(function (project) {
